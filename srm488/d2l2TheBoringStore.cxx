@@ -16,11 +16,15 @@ void print ( const pair<string, string> &p)
 
 
 class TheBoringStoreDivTwo {
+  bool isBetter(const string& prev, const string& curr) const;
 public:
   string find(string J, string B); 
 };
 
-
+bool TheBoringStoreDivTwo::isBetter(const string& prev, const string& curr) const {
+  return (prev.length() < curr.length() || 
+	  (prev.length() == curr.length() && curr.compare(prev) < 0));
+}
 
 string TheBoringStoreDivTwo::find(string sj, string sb) {
   
@@ -41,12 +45,12 @@ string TheBoringStoreDivTwo::find(string sj, string sb) {
 	    if (a.length() > b.length()) {
 	      swap(a,b);
 	    }
-	    // if prefix
+
 	    if(std::equal(a.begin(), a.end(), b.begin())) {
 	      jpairs.push_back( make_pair(a,b.substr(a.length())));
 	    }	      
 	  }
-	  
+
   for(int i = 0; i < iblen ; ++i)
     for(int j = i; j < iblen; ++j)
       for(int k =j+1; k < iblen; ++k)
@@ -63,22 +67,15 @@ string TheBoringStoreDivTwo::find(string sj, string sb) {
 	    }	      
 	  }
 
-
-  //  for_each(bpairs.begin(), bpairs.end(), print);
-
-  string prevResult="";
+  string result;
   for (int i = 0; i < jpairs.size(); ++i)
-    {
       for (int j = 0; j < bpairs.size(); ++j)
-	{
 	  if(bpairs[j].second == jpairs[i].second) {
-	    string nResult = jpairs[i].first + bpairs[j].second + bpairs[j].first;
-	    prevResult = nResult.length() > prevResult.length() || (nResult.length() == prevResult.length() && nResult.compare(prevResult) < 0)? nResult : prevResult;
+	    string curr = jpairs[i].first + bpairs[j].second + bpairs[j].first;
+	    result = isBetter(result, curr) ? curr : result;
 	  }
-	}
-    }
 
-  return  prevResult;
+  return  result;
 }
 
 int main() {
