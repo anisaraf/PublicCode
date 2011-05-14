@@ -17,20 +17,18 @@ class Robot {
 public:
   Robot() : m_currPos(1), m_accumulatedSeconds(0) {} ;
   int moveMe(int position) {
-    int requiredSeconds = abs(position - m_currPos) - m_accumulatedSeconds + 1;
+    int requiredSeconds = abs(position - m_currPos) + 1 - m_accumulatedSeconds;
     m_accumulatedSeconds = 0;
     m_currPos = position;
-    return requiredSeconds > 0 ? requiredSeconds : ;
+    return requiredSeconds > 0 ? requiredSeconds : 1;
   }
 
   int accumulateSeconds(int seconds){
     m_accumulatedSeconds+=seconds;
   }
-
 };
 
 class Game {  
-
 public:
   int move(Robot& rMove, Robot& rAccumulate, int pos)
   {
@@ -41,26 +39,20 @@ public:
 
   int start(const string& moves) { 
     istringstream in(moves);
-    int nextPos;
-    char nextRobot;
-    int totalSeconds=0;
+    int nextPos, temp, totalSeconds=0;
+    char cNextRobot;
     Robot ro, rb;
-    int totalMoves;
-    
-    in >> totalMoves;
+
+    in >> temp;
     while(! in.eof()) {
-      in>>nextRobot>>nextPos;
-      if(nextRobot == 'O') 
+      in>>cNextRobot>>nextPos;
+      if(cNextRobot == 'O') 
 	totalSeconds += this->move(ro , rb, nextPos);     
       else
 	totalSeconds += this->move(rb , ro, nextPos);
     }
-      
     return totalSeconds;
-    
-
   }
-  
 };
 
 int main() {
@@ -71,8 +63,7 @@ int main() {
 
   cin>>totalCases;
   cin.ignore();
-  for (int i = 1; i <= totalCases; ++i)
-    {
+  for (int i = 1; i <= totalCases; ++i){
       getline(cin, moves);
       int totalTime = g.start(moves);
       printf("Case #%i: %i\n",i,totalTime);
