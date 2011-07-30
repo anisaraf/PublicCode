@@ -4,27 +4,74 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <iterator>
+#include <limits>
 
 using namespace std;
 
-class MarbleDecoration {
+class MysteriousRestaurant {
+  int getPrice(char p);
+  bool isDayValid(vector<string> prices, int budget,int days);
 public:
-  int maxLength(int R, int G, int B);
+  int  maxDays(vector<string> prices, int budget);
 };
 
-int MarbleDecoration::maxLength(int R, int G, int B) {
-  vector<int> v;
-  v.push_back(R);
-  v.push_back(G);
-  v.push_back(B);
-  sort(v.begin(), v.end());
 
-  return v[1] * 2 + (v[1]==v[2] ? 0 : 1);
+int MysteriousRestaurant::getPrice(char p) {
+  if( p >='0' && p<='9') 
+    return p - '0';
+  else if (p >='A' && p<='Z')
+    return 10 + (p - 'A');
+  else if (p >= 'a' && p <='z')
+    return 36 + (p - 'a');
+  return -1;
+}
+
+bool MysteriousRestaurant::isDayValid(vector<string> prices, int budget,int days) {
+  int totalDishes = prices[0].length();
+  if( days > prices.size()) 
+    return false;
+
+  for(int d = 0 ; d < 7 && d < days ; d++) {
+    int mindish = INT_MAX;
+    for(int i = 0; i < totalDishes ; i++) {
+      int pDay = 0;
+      for(int j = d; j < days ; j+=7) {
+	if(j < days) pDay +=getPrice(prices[j][i]);
+      }
+      mindish = pDay < mindish ? pDay : mindish;
+    }
+    budget -=mindish;
+    //printf("day %i budget %i mindish %i  \n", d, budget, mindish);
+    if(budget < 0) return false;
+  }
+  return true;
+}
+
+int MysteriousRestaurant::maxDays(vector<string> prices, int budget) {
+  int d = 1;
+  while(isDayValid(prices, budget, d)) {
+    d++;
+  }
+  return (d-1);
 }
  
+template<typename T, size_t N>
+T * end(T (&ra)[N]) {
+  return ra + N;
+}
+
 int main(){
-  MarbleDecoration test;
-  test.maxLength(13,13,13);
+  string prices[] = {"26", "14", "72", "39", "32", "85", "06"};
+  vector<string> p(prices, end(prices));
+
+  MysteriousRestaurant m;
+  cout<<"max days"<<m.maxDays(p, 13)<<endl;
+
+  ostream_iterator<string> out_it (cout,"\n ");
+  copy ( p.begin(), p.end(), ostream_iterator<string>(cout,"\n") );
+
+  
 }
 
 
