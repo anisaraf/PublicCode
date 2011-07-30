@@ -32,7 +32,7 @@ bool MysteriousRestaurant::isDayValid(vector<string> prices, int budget,int days
   if( days > prices.size()) 
     return false;
 
-  for(int d = 0 ; d < 7 && d < days ; d++) {
+  for(int d = 0 ; d < 7 && d < days; d++) {
     int mindish = INT_MAX;
     for(int i = 0; i < totalDishes ; i++) {
       int pDay = 0;
@@ -70,10 +70,29 @@ int main(){
 
   ostream_iterator<string> out_it (cout,"\n ");
   copy ( p.begin(), p.end(), ostream_iterator<string>(cout,"\n") );
-
-  
 }
 
+/* Things Learnt:
+
+** Print a vector using ostream_iterator
+copy ( p.begin(), p.end(), ostream_iterator<string>(cout,"\n") );
+
+** Initialize a vector of strings
+template<typename T, size_t N>
+T * end(T (&ra)[N]) {
+  return ra + N;
+}
+
+string prices[] = {"26", "14", "72", "39", "32", "85", "06"};
+vector<string> p(prices, end(prices));
+
+References:
+http://www.cplusplus.com/reference/std/iterator/ostream_iterator/
+http://stackoverflow.com/questions/4268886/initialize-a-vector-array-of-strings
+
+*/
+
+// Time taken = 1hr
 
 /* Problem Statement A mysterious new restaurant is open in the city
 for only N days. Happy to hear that, Ash and Elsh would like to have
