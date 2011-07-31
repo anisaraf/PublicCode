@@ -37,7 +37,7 @@ bool MysteriousRestaurant::isDayValid(vector<string> prices, int budget,int days
     for(int i = 0; i < totalDishes ; i++) {
       int pDay = 0;
       for(int j = d; j < days ; j+=7) {
-	if(j < days) pDay +=getPrice(prices[j][i]);
+       pDay +=getPrice(prices[j][i]);
       }
       mindish = pDay < mindish ? pDay : mindish;
     }
@@ -89,6 +89,7 @@ vector<string> p(prices, end(prices));
 References:
 http://www.cplusplus.com/reference/std/iterator/ostream_iterator/
 http://stackoverflow.com/questions/4268886/initialize-a-vector-array-of-strings
+http://www.informit.com/guides/content.aspx?g=cplusplus&seqNum=241
 
 */
 
