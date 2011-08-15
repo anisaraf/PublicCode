@@ -1,46 +1,43 @@
-Hi Ersin,
+Queuing System:
 
-Please find the implemented solution for the queuing manager.
+We have ad networks (users) who want to run reports to figure out how much they have spent, number of impressions, clicks, conversions etc. These reports are essentially queries against a data ware house/database (resource). We have seen that during peak hours (beginning of the day) when all of them try to run their reports, the load on the resource becomes bottle neck and not only results in slow response, but also affects other jobs like loading & aggregation running against the same resource. So, what we would like is some sort of queuing so that at any given point of time only a certain number of concurrent reports are allowed to run.
 
-Some Caveats:
+Constraints:
+- Each user has a priority assigned to them (1- 100), default priority being 5
+- Each user can run at max, 'x' reports concurrently
+- Each resource has max capacity for 'y'
 
-1)I didn't do a make file etc. since I am not very familiar with
-either java make files / don't have a java environment set up. I think
-you should be able to drop the source files into eclipse and run
-them. I didn't use any special libraries etc. The text files must be
-in the src directory, and you can keep updating them, and they should
-be picked up by the dispatcher.
+Setup:
+- For user info, a table or file which looks like:
 
-To update the files: You can update the User file, and the Cache file
-by increasing/decreasing the number of resources.  For Queries, you
-cannot re-use a query id. As long as you don't reuse a query id, you
-can keep adding as many Queries as you want.  [Shortcoming: the query
-id and user id should not be reused either so you can't use a user id
-of 1 and have a query id of 1 because of the way resources are set up
-- it can be fixed by modifying the id's on the fly when they are read]
+UserId     Priority maxConcurrentReports
+1               10     3
+5               20     2
+3               05     5
 
-I added a new column to the query file specifying the Cache
-(Resource). Obviously, my solution can easily be modified to pick
-either resource, by treating all the caches as one resource, but since
-my solution is more general I am leaving it the way it is.
+- For resource capacity, a table or file which looks like:
 
-2)Similarly for testing, I didn't do either JUnit/user a proper
-logger, since setting these up would have taken me significant
-time. Since I am mostly doing C++/Perl, I don't have the java work flow
-set up on my home laptop, and setting these up/getting them to work
-would have taken me a fair bit of time. Testing multithreaded programs
-in general is difficult, and hence setting up a logger would have been
-ideal, so that when a heisenbug happens, we can at least retrace our
-steps.
+ResouceId     Capacity
+CacheA          3
+CacheB          2
 
-3) Again, I am mostly new to Java (and multithreaded programming in
-general), and since you said you'll prefer a Java solution I looked
-into the libraries. As such, my code might not follow the Java best
-practices etc. There are no java doc style comments ( I personally
-don't like them, but they seem to be the standard in the java world.)
+- Simulate "work" on each resource. For ex: just sleep for a some time in a thread
 
-4) I added notes to each of the source files, but I'll outline the general solution here.
+- The distribution of outstanding report queries to a resource should happen with according to some strategy which should be easily pluggable. For this assignment, we want it to be priority based. So, the user with highest priority gets to run first. If the priority is same then earliest created one should run first, if priority & created_on are same either one can go - doesn't matter
 
+- Initial state:
+UserId     QueryId     createdOn
+1               23               04/11/2011 10:00:00
+5               24               04/11/2011 10:00:00
+5               25               04/11/2011 10:00:01
+5               26               04/11/2011 10:00:02
+3               27               04/11/2011 10:00:03
+3               28               04/11/2011 10:00:04
+3               29               04/11/2011 10:00:05
+1               30               04/11/2011 10:00:01
+1               31               04/11/2011 10:00:02
+1               32               04/11/2011 10:00:03
+5               33               04/11/2011 10:00:04
 The general thinking is to create resource pools for all the
 constraints. Thus we create resource pools for users (concurrent
 reports) and the caches. The relevant classes are ResourcePool.java,
@@ -125,8 +122,3 @@ Running Query 29 for User 3,R3 using Resource CacheA,R1
 Shutting down
 Finished Query 29 for User 3,R3 using Resource CacheA,R1
 
-
-Looking forward to hearing back from you! Let me know if you encounter any issues with running the code.
-
-Thanks,
-Ani
