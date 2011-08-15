@@ -1,0 +1,3 @@
+ResouceId,Capacity
+CacheA,3
+CacheB,2
