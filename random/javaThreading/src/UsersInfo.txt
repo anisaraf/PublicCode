@@ -1,0 +1,4 @@
+UserId,Priority,maxConcurrentReports
+1,10,3
+5,20,2
+3,05,5
