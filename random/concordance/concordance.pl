@@ -28,7 +28,7 @@ while(<$fh>) {
 
 foreach (sort keys(%$concordance) )
 {
-    print "$_ {@{ $concordance->{$_} }}\n"
+    print "$_ {@{ $concordance->{$_} }}\n";
 }
 
 sub split_sentences
