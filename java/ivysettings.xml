@@ -1,0 +1,9 @@
+<ivysettings>
+  <caches defaultCacheDir="/Users/asaraf/Documents/github/code/java/ivycache/"/>
+
+  <settings defaultResolver='central'/>
+  <resolvers>
+    <ibiblio name='central' m2compatible='true'/>
+  </resolvers>
+  
+</ivysettings>

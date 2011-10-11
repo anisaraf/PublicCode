@@ -1,0 +1,140 @@
+
+Two people are playing a game, where the goal is reach 50. The first
+person picks a number between 1 and 10, and they alternate adding a
+number between 1 and 10, what is your strategy.
+View Answers (1)
+
+You have two eggs and are trying to find the highest floor you can
+drop an egg from and have the egg survive. At the same time you want
+to minimize the drops. what is the strategy?
+View Answers (1)
+
+you have a 10x10x10 rubix cube. You paint the outside. How many cubes
+have paint on them.
+
+Find the running subset of an array that sums to the highest value
+
+Do a binary tree traversal with constant memory (no stacks).
+
+Implement Soduko;
+
+Describe an algorithm for finding a duplicate character in a string.
+
+How to write a function that determines the intersection (identical
+elements) of two arrays.
+
+How would you test an elevator to see if it is safe to ride.
+
+design an algorithm for this problem: given inputs: int[] arr, int k,
+and int n, find all n-tuples in arr that sum to k.
+
+how would you design a distributed system to maximize
+reliability/consistency?
+
+Find the largest possible difference in an array of integers, such
+that the smaller integer occurs earlier in the array.
+
+ou are outside a room. Inside the room there are two light bulbs. One
+light bulb is on all the time, the other light bulb only turns on when
+you open the door. How do you determine which light bulb is on all the
+time?
+
+Given an array of n integers find 3 that sum to zero.
+...4 that sum to zero.
+...5 that sum to zero.
+...6 that sum to zero.
+
+Find a subarray that sums to zero (elements must be contiguous).
+
+Give an efficient solution for subset sum.
+
+Given an array of n unsorted ints, with the condition that each number
+is at most k positions away from its final sorted position, give an
+efficient sorting algorithm.
+
+Write a function in C that flips an array of doubles. Read it to me.
+
+ou are given a pyramid; the numbers for example is 2 on the first
+level, 3 -1 on the second level, 4 7 8 on the third, etc. How do you
+calculate the maximum sub sequence of any path traversing the pyramid?
+
+Asking how you would code shapes in Java
+
+ow to find if n numbers in a list sum up to an integer k?
+
+
+Write a program to calculate the Fibonacci sequence.
+
+Sort a list of numbers in which each number is at a distance k from
+its actual position
+
+n-order search of binary tree (recursive)?
+
+Iterative in-order search?
+
+. Given two (i,j) coordinates of a cell in two dimensional
+matrix. These coordinates are the lower left and upper right corner of
+a rectangle contained within the matrix. Sum all the elements in the
+matrix. Time and space?
+
+2. Implement peek_min operation on a stack.
+
+Sort 1 million numbers. at any given time have only 10000 numbers in
+memory.
+
+Given a list of ints, write an algorithm to return all the pairs of
+values that sum to 0
+
+Find two numbers in an array which sum to zero
+
+Find three numbers in an array which sum to zero
+
+What does synchronized means in Java? How can you avoid deadlocks?
+
+Given an array of integers how would you find pairs that equal 7
+
+What is the difference between MySql and Oracle DB
+
+Given and array. How do you find if there are such three numbers whose
+sum is Zero. What is the cost of this algorithm?
+
+Given two arrays with length M and N. How do you merge them. What is
+the cost of operation?
+
+
+How to remove duplicates in an array
+
+You have nine balls which look all identical but there is one that
+weighs more than the others. You also have a balance which you can use
+to compare two items at a time. What is the least amount of times that
+you can use the balance to find out which one is the heaviest ball?
+
+Given some binary number, how would you determine whether the 5th
+least significant digit is a 1 or a 0?
+
+Given a website as a list of files. How would you pull out phone
+numbers from all of the files.
+
+How to get phone numbers from many files in directory
+
+Basic SQL understanding. Like what is foreign key, write query to get
+some numbers in table.
+
+If you have a large array of integers, write an algorithm that will
+find if any two sum to zero. What is the Big O of the algorithm. Come
+up with ways that are not brute force that are faster.
+
+Given an array of prices. Find the maximum single profit for any long
+transaction (not short).
+
+Given a fleet of 50 trucks, each with a full fuel tank and a range of
+100 miles, how far can you deliver a payload? You can transfer the
+payload from truck to truck, and you can transfer fuel from truck to
+truck. Extend your answer for n trucks.
+
+rint every other level of a tree (Easiest question I got)
+
+How would you find the shortest path between two nodes in a graph?
+Write code in Java to do this.
+
+

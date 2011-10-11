@@ -1,0 +1,44 @@
+* Machine Learning
+  :LOGBOOK:
+  CLOCK: [2011-09-25 Sun 23:14]--[2011-09-26 Mon 01:04] =>  1:50
+  CLOCK: [2011-09-25 Sun 19:15]--[2011-09-25 Sun 19:53] =>  0:38
+  CLOCK: [2011-09-25 Sun 17:12]--[2011-09-25 Sun 17:39] =>  0:27
+  :END:
+  :PROPERTIES:
+  :Effort:   100
+  :END:
+
+** I. Introduction
+
+   + Database Mining / Application that can't be programed by hand
+        / Self-customizing programs (recommendations)
+   + ability to learn without being explicitly programmed 
+   + Supervised Learningq
+     + Given some right answers
+     + Regression
+     + Classification - discrete value output/ feature (attibutes on
+       which we are classifying)
+   + Unsupervised Learning
+     + No correct answers given
+     + Clustering
+   
+** Linear  
+
+   + Linear regression with one variable / univariate linear
+     regression : hypothesis is a linear function!
+   + h(x) = theta0 + theta1.x [theta0, theta1 = paramters]
+   + Chose parameters so that h(x) satisfies the training set.
+   + Squared error cost fuction J(theta0, theta1)  = min sum[(h(x) - y)2]
+** Gradient descent 
+   + alpha too small - gradient descent is slow
+   + alpha is too large - might miss minimum and never converge
+   + as we approach min - derivitative decreases so our step size is
+     automatically decreasing
+** Linear regression in one varioable
+   + Apply gradient descent to minimize cost function
+   + Cons function is always a convex function, and therefore the
+     function has only one global optimium (which is why gradient
+     descent works!)
+   + Batch gradient descent ( uses all of the training data)
+   + Global equation method - numerical way to solve gradient descent
+   + 

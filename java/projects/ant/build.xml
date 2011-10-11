@@ -1,0 +1,12 @@
+<project name="HelloWorld" default="main" basedir=".">
+
+  <property name="subproject.name" value="${ant.project.name}" />
+  <property name="subproject.main.class" value="ant.${ant.project.name}" />
+
+  <property name="ivy.settings.file"  value="../../ivysettings.xml"/>
+  <import file="../../build-common.xml" />
+
+</project>
+
+
+  

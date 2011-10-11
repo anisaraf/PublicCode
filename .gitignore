@@ -1,1 +1,8 @@
+.#*
+*.class
 *.out
+build/
+dist/
+lib/
+java/ivycache
+java/javadocs

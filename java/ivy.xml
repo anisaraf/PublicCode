@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ivy-module version="2.0">
+      <info organisation="com.codeherb" module="AllProjects"/>
+      <dependencies>
+	<!-- conf="*->*,!sources,!javadoc" -->
+	    <dependency org="commons-cli" name="commons-cli" rev="1.2"/>
+      </dependencies>
+</ivy-module>
+
