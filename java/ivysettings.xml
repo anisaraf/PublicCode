@@ -1,5 +1,5 @@
 <ivysettings>
-  <caches defaultCacheDir="/Users/asaraf/Documents/github/code/java/ivycache/"/>
+  <caches defaultCacheDir="/Users/asaraf/Documents/github/PublicCode/java/ivycache/"/>
 
   <settings defaultResolver='central'/>
   <resolvers>

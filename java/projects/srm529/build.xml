@@ -1,10 +1,12 @@
-<project name="HelloWorld" default="main" basedir=".">
+<project name="Div2" default="main" basedir=".">
 
   <property name="subproject.name" value="${ant.project.name}" />
-  <property name="subproject.main.class" value="ant.${ant.project.name}" />
+  <property name="subproject.main.class" value="projecteuler.${ant.project.name}" />
 
   <property name="ivy.settings.file"  value="../../ivysettings.xml"/>
   <import file="../../build-common.xml" />
+
+  <target name="problem1" depends="clean,compile,test"/>
 
 </project>
 
